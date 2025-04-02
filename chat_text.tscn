@@ -1,0 +1,217 @@
+[gd_scene load_steps=12 format=3 uid="uid://bkct4x54pip"]
+
+[ext_resource type="Script" uid="uid://cbn6kjbowsmjh" path="res://chat_text.gd" id="1_n0p7m"]
+[ext_resource type="FontFile" uid="uid://5fowx8l8pgvg" path="res://scene/MANIC.otf" id="1_u6hnl"]
+[ext_resource type="StyleBox" uid="uid://bfxg2xwp5nmcu" path="res://pet.tres" id="2_sbedw"]
+
+[sub_resource type="Animation" id="Animation_uqt3d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-261, -28)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="Animation" id="Animation_g2out"]
+resource_name = "RESETLOG"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-261, -28)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="Animation" id="Animation_nb57t"]
+resource_name = "anime_logChange"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-261, -28), Vector2(-257, -11)]
+}
+
+[sub_resource type="Animation" id="Animation_u6hnl"]
+resource_name = "anime_logSmaller"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-257, -11), Vector2(-262, -11)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nb57t"]
+_data = {
+&"RESET": SubResource("Animation_uqt3d"),
+&"RESETLOG": SubResource("Animation_g2out"),
+&"anime_logBigger": SubResource("Animation_nb57t"),
+&"anime_logSmaller": SubResource("Animation_u6hnl")
+}
+
+[sub_resource type="Theme" id="Theme_nb57t"]
+default_font = ExtResource("1_u6hnl")
+
+[sub_resource type="Theme" id="Theme_g2out"]
+default_font = ExtResource("1_u6hnl")
+default_font_size = 12
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u6hnl"]
+size = Vector2(186, 172)
+
+[node name="ChatText" type="Label"]
+offset_left = 292.0
+offset_top = 13.0
+offset_right = 719.0
+offset_bottom = 48.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("1_u6hnl")
+theme_override_font_sizes/font_size = 25
+text = "Belle journée! Mais… t’es plus belle."
+vertical_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+script = ExtResource("1_n0p7m")
+
+[node name="AnimationPlayer_2" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_nb57t")
+}
+
+[node name="CreateDialog" type="HTTPRequest" parent="."]
+
+[node name="AskQuestion" type="HTTPRequest" parent="."]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchor_left = -0.604215
+anchor_top = 0.171429
+anchor_right = -0.604215
+anchor_bottom = 0.171429
+offset_left = -3.00018
+offset_top = -34.0
+offset_right = -3.00018
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(262.044, 341.136)
+metadata/_edit_use_anchors_ = true
+
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
+custom_minimum_size = Vector2(500, 300)
+layout_mode = 1
+offset_right = 520.0
+offset_bottom = 300.0
+theme_override_styles/panel = ExtResource("2_sbedw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/PanelContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.5
+theme = SubResource("Theme_nb57t")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 30
+text = "Hello"
+
+[node name="LineEdit" type="LineEdit" parent="Control/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 33.87)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 10
+theme = SubResource("Theme_g2out")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 24
+placeholder_text = "Tapez ici"
+max_length = 40
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D_Chat" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-7, 508)
+shape = SubResource("RectangleShape2D_u6hnl")
+
+[connection signal="request_completed" from="CreateDialog" to="." method="_on_create_dialog_request_completed"]
+[connection signal="request_completed" from="AskQuestion" to="." method="_on_ask_question_request_completed"]
+[connection signal="text_submitted" from="Control/PanelContainer/VBoxContainer/LineEdit" to="." method="_on_line_edit_text_submitted"]
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
