@@ -11,10 +11,10 @@ Franch_Ai_DeskPet 是一个会说法语并具有傲娇性格的 AI 桌面宠物�
 - 按Ese退出
 
 ## 🚀安装使用
-### 视频模式
+### A.直接运行游戏
 下载并解压 **`bojourPet3_18.7z`**，然后打开其中的 **`.exe` 文件**，即可听见桌宠对话和互动。
 
-### 在 Godot 中运行
+### B.在 Godot 中打开工程文件
 1. 确保你已安装 [Godot 4](https://godotengine.org/download)。
 2. 打开 Godot，选择 **`加载环境`**。
 3. 将项目相关文件的 **根目录** 导入到 Godot 中。
